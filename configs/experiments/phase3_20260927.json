@@ -1,0 +1,56 @@
+{
+  "version": "phase3-v1",
+  "purpose": "Expanded train/validation multi-seed confirmation; test remains sealed",
+  "candidate_targets": {"train": 5000, "val": 500},
+  "candidate_report": "runs/phase3_candidates/20260927/expanded_v1/report.json",
+  "protocol_dir": "runs/phase3_protocol/20260927/expanded_v1",
+  "feature_reuse_report": "runs/phase2_features/275876_final_v2/report.json",
+  "selection": {
+    "seed": 20260927,
+    "sequence_length_range_per_chain": [1, 2000],
+    "minimum_mapping_fraction": 0.95,
+    "cluster_identity": 0.9,
+    "cluster_coverage": 0.8,
+    "preserve_phase2_train_and_val": true,
+    "block_all_previous_val_candidate_clusters_from_train": true,
+    "one_record_per_pdb_and_cluster_pair_per_split": true,
+    "filter_by_labels": false
+  },
+  "main_variants": ["ES", "ES-B", "ES-C"],
+  "seeds": [20260927, 20260928, 20260929],
+  "training": {
+    "epochs": 30, "patience": 5, "min_delta": 0.0001,
+    "batch_size": 24, "eval_batch_size": 32,
+    "learning_rate": 0.001, "weight_decay": 0.0001,
+    "hidden_dim": 256, "frozen_backbones": true,
+    "normalization_fit_split": "train", "tf32": false,
+    "selection_metric": "chain_macro_average_precision"
+  },
+  "statistics": {
+    "primary_comparison": "ES-C minus ES",
+    "secondary_comparisons": ["ES-B minus ES", "ES-C minus ES-B"],
+    "across_seeds": "mean and sample standard deviation; paired deltas for the same seed",
+    "validation_bootstrap": "paired connected components of complexes sharing chain clusters",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20260927,
+    "confidence_level": 0.95,
+    "validation_inference_only": true,
+    "export_per_chain_predictions": true,
+    "undefined_metrics": "no-positive AP undefined; single-class AUROC undefined; explicitly count each"
+  },
+  "diagnostics_after_main_comparison": [
+    "capacity-matched ES residual adapter",
+    "ES plus monomer exposure/depth features and surface-only evaluation",
+    "within-chain surface-feature permutation during both training and validation",
+    "separate inference-only permutation sensitivity"
+  ],
+  "max_concurrent_extraction_gpus": 2,
+  "test_records_read": 0,
+  "test_labels_read": 0,
+  "limits": [
+    "90% identity clusters do not exclude all remote homology",
+    "bound DIPS monomers are not unbound structures",
+    "dMaSIF checkpoint exact supervised membership remains unknown",
+    "validation comparisons after Phase 2 selection are developmental evidence"
+  ]
+}

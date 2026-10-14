@@ -1,0 +1,143 @@
+########################################
+# Generated data and experiment outputs
+########################################
+
+# Dataset
+/data/*
+!/data/README.md
+
+# Training outputs
+/runs/*
+!/runs/README.md
+
+/logs/*
+!/logs/README.md
+
+# Reports generated from experiments
+/reports/*
+!/reports/README.md
+
+# Historical archives / snapshots
+/archive/
+
+
+########################################
+# Model checkpoints and binary artifacts
+########################################
+
+# Deep learning checkpoints
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Feature / embedding files
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+
+# Dataset binary formats
+*.lmdb
+*.h5
+*.hdf5
+*.bin
+
+# Structure / sequence data
+*.cif
+*.pdb
+*.fa
+*.fasta
+*.faa
+*.fastq
+*.fastq.gz
+
+
+########################################
+# Environment and local configuration
+########################################
+
+# Python environments
+.venv/
+venv/
+env/
+
+# Conda local environments
+/.conda/
+
+# Local configuration
+.env
+.env.*
+
+/configs/paths.local.json
+
+# Package cache
+.cache/
+
+
+########################################
+# Python generated files
+########################################
+
+__pycache__/
+*.py[cod]
+
+# Testing cache
+.pytest_cache/
+
+# Notebook cache
+.ipynb_checkpoints/
+
+
+########################################
+# Build artifacts
+########################################
+
+build/
+dist/
+
+*.egg-info/
+
+*.so
+*.o
+
+# Compiled extensions
+*.egg
+
+
+########################################
+# Download archives
+########################################
+
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.zst
+*.deb
+
+
+########################################
+# IDE and OS files
+########################################
+
+.DS_Store
+
+.idea/
+.vscode/
+
+
+########################################
+# Temporary files
+########################################
+
+*.log
+*.out
+*.err
+
+*.tmp
+*.bak
+*.swp
+# external repositories
+third_party/
