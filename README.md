@@ -2,6 +2,8 @@
 
 SurfaceResidue-PPI 比较冻结的 ESM2、GearNet 和 dMaSIF 表征，以及表面点到残基的 A/B/C 融合方式。模型训练、推理、特征提取和 smoke test 必须通过 Slurm；ATOM3D CPU 数据审计是用户明确授权的工作站例外。
 
+2026-11-06 新方案准备：官方 ESM-GearNet 已作为固定版本的 submodule 接入 `third_party/ESM-GearNet/`。新方案使用官方预训练初始化，并允许不同下游任务分别微调 ESM、GearNet 与新增融合模块；下方 Phase 2/3 结果仍属于历史冻结主干协议。源码、权重恢复、下载校验和实际状态见 [ESM-GearNet 接入记录](docs/esm_gearnet_setup_20261106.md)。本次只接入依赖和下载工具，尚未实现新模型或运行模型加载验证。
+
 本 README 同时是工作站和集群项目目录的导航。工作站目录为 `/home/zy/projects/Surface-residue`，集群项目路径为：
 
 ```text
@@ -42,7 +44,7 @@ SurfaceResidue-PPI 比较冻结的 ESM2、GearNet 和 dMaSIF 表征，以及表�
 ├── runs/                             # 按实验和 job 保存的结果、checkpoint、特征（不入 Git）
 ├── logs/                             # Slurm 和审计日志（不入 Git）
 ├── tools/                            # 第三方工具和安装包（不入 Git）
-├── third_party/                      # 第三方源码（只读，不入 Git）
+├── third_party/                      # 第三方源码；ESM-GearNet 以固定 submodule 引用
 └── archive/                          # 历史根目录副本和整理清单
 ```
 
@@ -85,9 +87,9 @@ SurfaceResidue-PPI 比较冻结的 ESM2、GearNet 和 dMaSIF 表征，以及表�
 
 `envs/` 只保存环境说明和版本清单。工作站审计使用项目专属 `.venv-audit`；共享 `gearnet` 环境和旧项目只读。`tools/`、`third_party/` 保存下载的工具或源码，不在本项目 Git 快照中提交；工作站安装包位于 `tools/packages/`。历史集群环境为 `surface-residue-dmasif`，Python 3.8.20、PyTorch 1.8.1+cu111、NumPy 1.24.4、SciPy 1.10.1（来自 275819 版本记录，本轮没有加载模型复验）。详见 [环境记录](envs/README.md)。
 
-## Git 快照边界
+## Git 快照边界（2026-10-14 整理记录）
 
-集群项目位于 `/datapool/home/zhangye/projects` 这个已有的 ProteinMAE 父仓库下面；父仓库与本项目无关，不能在父目录直接执行 `git add`。本项目已经有独立的 Git 仓库，仓库根目录是 `/datapool/home/zhangye/projects/surface-residue-ppi`，当前 `master` 还没有提交。本阶段只暂存源码、配置、文档、目录说明和小型 provenance 文件，不提交、不推送：
+集群项目位于 `/datapool/home/zhangye/projects` 这个已有的 ProteinMAE 父仓库下面；父仓库与本项目无关，不能在父目录直接执行 `git add`。2026-10-14 整理时，本项目已建立独立仓库，集群仓库根目录为 `/datapool/home/zhangye/projects/surface-residue-ppi`，当时 `master` 尚未提交。该次整理只暂存源码、配置、文档、目录说明和小型 provenance 文件，没有提交或推送。2026-11-06 的 ESM-GearNet 接入由用户另行授权提交并上传到现有 `origin`，不受历史“只暂存”范围限制。以下命令保留为历史操作示例：
 
 ```bash
 cd /datapool/home/zhangye/projects/surface-residue-ppi

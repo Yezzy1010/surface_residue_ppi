@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-11-06T08:03:48.735706+00:00",
+  "source": {
+    "url": "https://github.com/DeepGraphLearning/ESM-GearNet.git",
+    "directory": "third_party/ESM-GearNet",
+    "commit": "bc90557bbf9ee2676e87b9fc84570aa126daa808",
+    "sha256": {
+      "README.md": "4d56a3169490f5561a03823c9a9e430b4192c067a00787903deb085b7bb0114e",
+      "gearnet/model.py": "40a8e6cda64d99f63329e66061aa157e5b1b1c3de299d75f6e26019e2dabdf7f",
+      "gearnet/dataset.py": "9aa297f6e0bf90349b77d7996d216189c71748e96486ebd751cdd9a7de244b01",
+      "util.py": "417d3abc8a3fd77306e7a27954e8043a04ab50739a4077d20291ffee5d209ad0",
+      "config/EC/esm_gearnet.yaml": "17162b7094e86a1b22606a26c0dd3b263dd5e814e60d79c0321c3058ae3d9ba6",
+      "config/pretrain/mc_esm_gearnet.yaml": "e0d470daf025a3af32630917f5c9e4762d7d9b98f4afda8ea6992490b7b78356"
+    }
+  },
+  "checkpoint": {
+    "pretraining_method": "Multiview Contrast",
+    "record_url": "https://zenodo.org/records/10034578",
+    "url": "https://zenodo.org/records/10034578/files/mc_esm_gearnet.pth?download=1",
+    "directory": "data/models/esm_gearnet",
+    "filename": "mc_esm_gearnet.pth",
+    "md5": "ed4cd0f6da31e24fa7ddc5d8107a194e",
+    "published_size_approximate": "2.7 GB",
+    "availability": "See ignored data/models/esm_gearnet/download_records; metadata alone does not establish availability"
+  },
+  "model_execution": {
+    "performed_during_setup": false,
+    "required_mode": "slurm"
+  }
+}

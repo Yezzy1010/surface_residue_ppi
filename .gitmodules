@@ -1,0 +1,3 @@
+[submodule "third_party/ESM-GearNet"]
+	path = third_party/ESM-GearNet
+	url = https://github.com/DeepGraphLearning/ESM-GearNet.git

@@ -139,5 +139,7 @@ dist/
 *.tmp
 *.bak
 *.swp
-# external repositories
-third_party/
+# External source trees stay excluded unless registered as pinned submodules.
+/third_party/*
+!/third_party/README.md
+!/third_party/ESM-GearNet/

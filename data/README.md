@@ -9,6 +9,7 @@
 | `cache/` | 模型或下载缓存 | 约 290M |
 | `task3/` | D-SCRIPT/UniProt 任务三输入；工作站另有已归位的 `task3_xref_sample.json` | 约 98M |
 | `manifests/` | 预留的数据清单位置 | 空目录 |
+| `models/esm_gearnet/` | 官方 Multiview Contrast 权重、断点文件及逐次下载记录；不进入 Git | 新接入，下载状态见接入记录 |
 | `legacy/dscript/` | 工作站历史 D-SCRIPT TSV/FASTA 下载副本；没有宣称重新验证用途 | 工作站独有 |
 | `structures/root_inputs_20250925/` | 集群原根目录 20 个 mmCIF，归档保留 | 集群独有 |
 
